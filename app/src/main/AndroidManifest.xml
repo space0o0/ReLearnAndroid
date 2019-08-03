@@ -9,8 +9,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".customIPC.client.ClientActivity"
-                  android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".handler.ExampleHActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -18,9 +17,13 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".aidl.AIDLActivity"
+                android:name=".customIPC.client.ClientActivity"
                 android:theme="@style/AppTheme.NoActionBar">
 
+        </activity>
+        <activity
+                android:name=".aidl.AIDLActivity"
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
                 android:name=".MainActivity"
@@ -34,8 +37,9 @@
         <service
                 android:name=".aidl.RemoteService"
                 android:process="space.aidl.remote"/>
-        <service android:name=".customIPC.server.BookRemoteService"
-        android:process="space.server.book"/>
+        <service
+                android:name=".customIPC.server.BookRemoteService"
+                android:process="space.server.book"/>
     </application>
 
 </manifest>
