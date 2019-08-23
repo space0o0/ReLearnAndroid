@@ -9,13 +9,14 @@ import android.os.Message
 import android.util.Log
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import demo.sp.relearnandroid.R
 import kotlinx.android.synthetic.main.activity_example_h.*
 
 class ExampleHActivity : AppCompatActivity() {
 
     val Tag = javaClass.simpleName
+
+    lateinit var mainHandler: Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +31,26 @@ class ExampleHActivity : AppCompatActivity() {
 
             otherThreadsendMessage()
         }
+    }
+
+    /**
+     * 1.新建handler
+     */
+    fun initHandler() {
+        mainHandler = @SuppressLint("HandlerLeak")
+        object : Handler() {
+            override fun handleMessage(msg: Message?) {
+                super.handleMessage(msg)
+                //接收不同的消息，做不同的处理
+            }
+        }
+    }
+
+    /**
+     * 2.发送消息
+     */
+    fun sendMessage(){
+        mainHandler.sendMessage(Message())
     }
 
     private fun otherThreadsendMessage() {
