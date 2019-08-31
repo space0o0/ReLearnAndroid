@@ -1,11 +1,8 @@
 package demo.sp.relearnandroid.handler
 
 import android.annotation.SuppressLint
+import android.os.*
 import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.os.Message
 import android.util.Log
 import android.view.ViewGroup
 import android.widget.TextView
@@ -49,8 +46,11 @@ class ExampleHActivity : AppCompatActivity() {
     /**
      * 2.发送消息
      */
-    fun sendMessage(){
+    fun sendMessage() {
         mainHandler.sendMessage(Message())
+
+        var message = Message.obtain(mainHandler, Runnable { })
+
     }
 
     private fun otherThreadsendMessage() {
